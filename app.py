@@ -9,7 +9,6 @@ st.set_page_config(page_title="2026 Dünya Kupası Simülatörü", layout="wide"
 # ==========================
 # ASSET PATHS
 # ==========================
-ASSETS_DIR = Path("assets")
 TROPHY_PATH = ASSETS_DIR / "trophy.jpg"
 WC2026_PATH = ASSETS_DIR / "worldcup2026.jpg"
 
