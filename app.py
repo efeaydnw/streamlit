@@ -7,14 +7,11 @@ from pathlib import Path
 st.set_page_config(page_title="2026 Dünya Kupası Simülatörü", layout="wide")
 
 # ==========================
-# ASSET PATHS
+# HERO GÖRSELLER (repo kökünden)
 # ==========================
-TROPHY_PATH = ASSETS_DIR / "trophy.jpg"
-WC2026_PATH = ASSETS_DIR / "worldcup2026.jpg"
+TROPHY_PATH = Path("trophy.jpg")
+WC2026_PATH = Path("worldcup2026.jpg")
 
-# ==========================
-# CUSTOM CSS
-# ==========================
 st.markdown("""
 <style>
 .stApp {background: linear-gradient(180deg, #0b1020 0%, #11182b 100%); color: #f5f7fb;}
@@ -24,16 +21,11 @@ st.markdown("""
 .hero-highlight {color:#d4af37;}
 .hero-subtitle {font-size:18px; color:#d7dce8; line-height:1.6; margin-bottom:18px;}
 .info-chip {display:inline-block; padding:8px 14px; border-radius:999px; background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.08); margin-right:10px; margin-bottom:10px; color:#f5f7fb; font-size:14px; font-weight:600;}
-.section-box {background: rgba(255,255,255,0.04); padding:18px; border-radius:18px; border:1px solid rgba(255,255,255,0.08); margin-bottom:20px; box-shadow:0 8px 24px rgba(0,0,0,0.20);}
-.section-title {font-size:24px; font-weight:800; color:#d4af37; margin-bottom:10px;}
 .stButton > button {background: linear-gradient(90deg, #8b1538, #d4af37); color:white; border:none; border-radius:12px; font-weight:800; padding:10px 18px;}
 .stButton > button:hover {opacity:0.92; transform:translateY(-1px);}
 </style>
 """, unsafe_allow_html=True)
 
-# ==========================
-# HERO
-# ==========================
 hero_left, hero_right = st.columns([2.2,1], gap="large")
 with hero_left:
     st.markdown('<div class="hero-box">', unsafe_allow_html=True)
@@ -51,7 +43,7 @@ with hero_right:
         st.image(str(WC2026_PATH), use_container_width=True)
 
 # ==========================
-# GROUPS & FLAGS
+# GRUPLAR
 # ==========================
 groups = {
     "A": ["Meksika", "Güney Afrika", "Güney Kore", "Çekya"],
@@ -97,7 +89,7 @@ if "matches" not in st.session_state:
     st.session_state.matches = {}
 
 # ==========================
-# GRUP MAÇLARI INPUT
+# GRUP MAÇLARI
 # ==========================
 st.header("🏟️ Grup Maçları")
 for g, teams in groups.items():
